@@ -27,36 +27,28 @@ class UserController extends Controller
             'email' => ['required', 'email', Rule::unique('users', 'email')],
             'password' => 'required|confirmed|min:6'
         ]);
-        
-    
-
         //Hash Password
         $formFields['password'] = bcrypt($formFields['password']);
-
         //Create User
         $user = User::create($formFields);
-
         //Login
         auth()->login($user);
 
         return redirect('/')->with('message', 'User created and logged in successfully.');
-}
+    }
 
-     public function login( ){
-
+     public function login(){
         return view('/users.login');
     }
 
     public function authenticate(Request $request){
          $formFields = $request->validate([
-          
             'email' => ['required', 'email'],
             'password' => 'required'
         ]);
 
         if (auth()->attempt($formFields)) {
             $request->session()->regenerate();
-
             return redirect('/')->with('message', 'Logged in');
         }
 
@@ -71,11 +63,9 @@ class UserController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return redirect('/register')->with('message', 'Logged out successfully.');
-        
+        return redirect('/register')->with('message', 'Logged out successfully.');   
     }
-
-    
+  
     public function show() {
         return view('menu.show-info');
     }
@@ -99,7 +89,7 @@ class UserController extends Controller
          //Hash Password
         $formFields['password'] = bcrypt($formFields['password']);
 
-        $user =Auth::user();
+        $user = Auth::user();
         
         $user->update($formFields);
         return redirect('/show_account')->with('message', 'Account update successfully');
