@@ -5,6 +5,8 @@ use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
+
+
 | Web Routes
 |--------------------------------------------------------------------------
 |
@@ -23,8 +25,6 @@ Route::get('/register', [UserController::class, 'create']);
 
 //Create New User
 Route::post('users', [UserController::class, 'store']);
-
-
 //Show login form
 Route::get('/login', [UserController::class, 'login']);
 

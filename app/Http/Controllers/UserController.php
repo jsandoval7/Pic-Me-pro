@@ -15,7 +15,6 @@ class UserController extends Controller
         return view('/menu.show-qr');
     }
 
-
     //Show Register/Create Form
 
     public function create(){
@@ -81,14 +80,13 @@ class UserController extends Controller
         return view('menu.show-info');
     }
 
-
     //QR Page
     public function qrCode(){
         return view('menu.show-qr');
     }
 
     public function show_gallary(){
-        return view('menu/show-gallary');
+        return view('menu.show-gallary');
     }
 
     public function profileUpdate(Request $request){
@@ -104,10 +102,6 @@ class UserController extends Controller
         $user =Auth::user();
         
         $user->update($formFields);
-        
-        return redirect('/menu.show-info')->with('message','Profile Updated');
+        return redirect('/show_account')->with('message', 'Account update successfully');
     }
-
-
-
 }
