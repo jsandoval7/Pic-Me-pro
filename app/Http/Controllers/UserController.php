@@ -3,18 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\QrCodes;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 class UserController extends Controller
 {
-    
-        public function index(){
-
-        return view('/menu.show-qr');
-    }
-
     //Show Register/Create Form
 
     public function create(){
@@ -34,7 +31,21 @@ class UserController extends Controller
         //Login
         auth()->login($user);
 
-        return redirect('/')->with('message', 'User created and logged in successfully.');
+        $user_id = (string)Auth::id();
+        $qr_id = $user_id . "_" . date("Ymd");
+        $path = public_path('storage/qr_codes/'. $qr_id .'.svg');
+        QrCode::size(500)->generate($user_id, $path); 
+
+        $qrFields = new QrCodes;
+
+        $qrFields = [
+        'users_id' => $user_id,
+        'path' => $path,
+       ];
+
+        QrCodes::create($qrFields);
+
+        return redirect('/qr_blade')->with('message', 'User created and logged in successfully.');
     }
 
      public function login(){
@@ -49,7 +60,7 @@ class UserController extends Controller
 
         if (auth()->attempt($formFields)) {
             $request->session()->regenerate();
-            return redirect('/')->with('message', 'Logged in');
+            return redirect('/qr_blade')->with('message', 'Logged in');
         }
 
         return back()->withErrors(['email'=> 'Invalid Credentials'])->onlyInput('email');
@@ -72,7 +83,13 @@ class UserController extends Controller
 
     //QR Page
     public function qrCode(){
-        return view('menu.show-qr');
+        $users_id= strval(Auth::id());
+        $query = DB::table('qrcodes')->where('users_id', '=', $users_id)->value('path');
+        $strArrPath = explode("/", strval($query), 10); 
+        $path = $strArrPath[9];
+
+
+        return view('menu.show-qr', ["qr" => $path]);
     }
 
     public function show_gallary(){
@@ -93,5 +110,10 @@ class UserController extends Controller
         
         $user->update($formFields);
         return redirect('/show_account')->with('message', 'Account update successfully');
+    }
+
+    public function index(){
+
+        return redirect('/gallary');
     }
 }
