@@ -64,7 +64,7 @@
                 <li>
                     <a href="/gallary" class="hover:text-laravel"
                         >
-                        <i class="fa-sharp fa-solid fa-images"></i>Gallary</a
+                        <i class="fa-sharp fa-solid fa-images"></i>Gallery</a
                     >
                 </li>
                 @else
