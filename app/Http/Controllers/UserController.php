@@ -93,7 +93,20 @@ class UserController extends Controller
     }
 
     public function show_gallary(){
-        return view('menu.show-gallary');
+        $users_id= 1;
+        $query = DB::table('userImages')
+                        ->where('users_id', '=', $users_id)
+                        ->whereNotNull('image_path')
+                        ->pluck('image_path');
+        
+        $images = array();
+        foreach ($query as $paths){
+            $strArrPath = explode("/", strval($paths), 10);  // Here too
+            $path = $strArrPath[9]; //Change array where path is relevant to production 
+            $images[] = $path;
+        }
+
+        return view('menu.show-gallary', ["result" => $images]);
     }
 
     public function profileUpdate(Request $request){
