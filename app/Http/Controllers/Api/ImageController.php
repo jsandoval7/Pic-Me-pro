@@ -23,7 +23,6 @@ class ImageController extends Controller
 
         $user_id = 1;
         
-
         $image_path = $request->image->move(public_path('/images/uploads'), $imageName);
         
         $data = UserImages::create([
@@ -41,6 +40,3 @@ class ImageController extends Controller
         return json_encode($jsonData);
     }
 }
-// /Users/jesussandoval/Documents/School/Capstone Project/picme/PicMe_Capstone/public/storage/qr_codes/1_20221106.svg
-
-// Users/jesussandoval/Documents/School/Capstone Project/picme/PicMe_Capstone/public/storage/user_images/1_20221106
