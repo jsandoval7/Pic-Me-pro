@@ -7,6 +7,7 @@ use App\Models\QrCodes;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Http\Client\Response;
 use Illuminate\Support\Facades\Auth;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
@@ -123,6 +124,10 @@ class UserController extends Controller
         
         $user->update($formFields);
         return redirect('/show_account')->with('message', 'Account update successfully');
+    }
+
+    public function downloadImage($image){
+
     }
 
     public function index(){
