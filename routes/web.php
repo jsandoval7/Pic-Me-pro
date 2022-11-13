@@ -42,5 +42,6 @@ Route::put('/update_account',[UserController::class, 'profileUpdate']);
 
 Route::get('/qr_blade', [UserController::class, 'qrCode']);
 
+Route::get('/downloadImg/images/uploads/{file_name}', [UserController::class, 'downloadImage']);
 
 Route::get('/gallary', [UserController::class, 'show_gallary']);

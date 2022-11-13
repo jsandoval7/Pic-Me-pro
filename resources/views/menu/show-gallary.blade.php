@@ -11,7 +11,22 @@
                             src="{{ asset($result) }}"
                         />
                     </div>
+                    <div class="flex w-full justify-evenly">
+                        <a href=" /downloadImg/{{ $result }} ">
+                            <x-button class="border-blue-600 text-blue-600">
+                                <i class="fa-regular fa-download"></i>
+                                Download</x-button
+                            >
+                        </a>
+                        <a href="">
+                            <x-button class="border-red-600 text-red-600">
+                                <i class="fa-regular fa-download"></i>
+                                Delete</x-button
+                            >
+                        </a>
+                    </div>
                 </div>
+
                 @endforeach
             </div>
         </div>
