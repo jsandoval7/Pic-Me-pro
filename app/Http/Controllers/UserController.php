@@ -126,8 +126,10 @@ class UserController extends Controller
         return redirect('/show_account')->with('message', 'Account update successfully');
     }
 
-    public function downloadImage($image){
-
+    public function downloadImage($file_name){
+        //Might need to change where path is relevant to production
+        $filepath = public_path('/images/uploads/' . $file_name);
+        return response()->download($filepath);
     }
 
     public function index(){

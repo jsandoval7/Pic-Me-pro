@@ -12,7 +12,7 @@
                         />
                     </div>
                     <div class="flex w-full justify-evenly">
-                        <a href="">
+                        <a href=" /downloadImg/{{ $result }} ">
                             <x-button class="border-blue-600 text-blue-600">
                                 <i class="fa-regular fa-download"></i>
                                 Download</x-button
