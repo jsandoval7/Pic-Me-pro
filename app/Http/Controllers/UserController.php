@@ -95,7 +95,7 @@ class UserController extends Controller
     }
 
     public function show_gallary(){
-        $users_id= 1;
+        $users_id= Auth::id();
         $query = DB::table('userImages')
                         ->where('users_id', '=', $users_id)
                         ->whereNotNull('image_path')
