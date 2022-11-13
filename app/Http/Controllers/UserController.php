@@ -76,7 +76,7 @@ class UserController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return redirect('/register')->with('message', 'Logged out successfully.');   
+        return redirect('/')->with('message', 'Logged out successfully.');   
     }
   
     public function show() {
@@ -148,6 +148,6 @@ class UserController extends Controller
     }
 
     public function index(){
-        return redirect('/gallary');
+        return view('users.index');
     }
 }
