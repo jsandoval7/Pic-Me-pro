@@ -13,19 +13,8 @@
             crossorigin="anonymous"
             referrerpolicy="no-referrer"
         />
+         @vite('resources/css/app.css')   
         <script src="//unpkg.com/alpinejs" defer></script>
-        <script src="https://cdn.tailwindcss.com"></script>
-        <script>
-            tailwind.config = {
-                theme: {
-                    extend: {
-                        colors: {
-                            laravel: "#ef3b2d",
-                        },
-                    },
-                },
-            };
-        </script>
         <title>PicMe | Capstone Project</title>
     </head>
     <body class="mb-48">
@@ -38,12 +27,17 @@
                     class="logo"
             /></a>
             <ul class="flex space-x-6 mr-6 text-lg">
+                <li>
+                    <a href="./#" class="hover:text-darkGrayishBlue"
+            >About Us</a
+          >
+                </li>
                 @auth
                 <li>
                    <span class="font-bold uppercase">Welcome {{auth()->user()->name}}</span>
                 </li>
                 <li>
-                    <form class="inline" method="POST" action="/logout">
+                    <form class="inline hover:text-darkGrayishBlue" method="POST" action="/logout">
                         @csrf
                         <button type="submit">
                             <i class="fa-solid fa-door-closed"></i>
@@ -52,34 +46,34 @@
                     </form>
                 </li>
                 <li>
-                    <a href="/show_account" class="hover:text-laravel"
+                    <a href="/show_account" class="hover:text-darkGrayishBlue"
                         ><i class="fa-solid fa-user-plus"></i> Account</a
                     >
                 </li>
                 <li>
-                    <a href="/qr_blade" class="hover:text-laravel"
+                    <a href="/qr_blade" class="hover:text-darkGrayishBlue"
                         ><i class="fa-solid fa-user-plus"></i> QR Code</a
                     >
                 </li>
                 <li>
-                    <a href="/gallary" class="hover:text-laravel"
+                    <a href="/gallary" class="hover:text-darkGrayishBlue"
                         >
                         <i class="fa-sharp fa-solid fa-images"></i>Gallery</a
                     >
                 </li>
                 @else
                 <li>
-                    <a href="/register" class="hover:text-laravel"
+                    <a href="/register" class="hover:text-darkGrayishBlue"
                         ><i class="fa-solid fa-user-plus"></i> Register</a
                     >
                 </li>
                 <li>
-                    <a href="/login" class="hover:text-laravel"
+                    <a href="/login" class="hover:text-darkGrayishBlue"
                         ><i class="fa-solid fa-arrow-right-to-bracket"></i>
                         Login</a
                     >
                 </li>
-                @endauth
+                @endauth       
             </ul>
         </nav>
         <main>{{ $slot }}</main>
