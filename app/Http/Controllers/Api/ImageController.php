@@ -14,14 +14,15 @@ class ImageController extends Controller
     //
     public function imageStore(Request $request)
     {
+        
         $this->validate($request, [
-            'image' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+            'image' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:10000',
         ]);
-
+        
         $extension = $request->file('image')->extension();
         $imageName = time().'.'.$extension; 
 
-        $user_id = 1;
+        $user_id = $request->userAccount;
         
         $image_path = $request->image->move(public_path('/images/uploads'), $imageName);
         
@@ -33,8 +34,11 @@ class ImageController extends Controller
         return response($data, Response::HTTP_CREATED);
     }
 
-    public function thisText(){
-       $response = Http::get('https://jsonplaceholder.typicode.com/posts');
+    public function thisText(Request $request){
+
+        $howMany = $request->howMany;
+
+       $response = Http::get('https://jsonplaceholder.typicode.com/users/'.$howMany);
     
         $jsonData = $response->json();
         return json_encode($jsonData);
