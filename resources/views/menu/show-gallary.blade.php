@@ -18,12 +18,13 @@
                                 Download</x-button
                             >
                         </a>
-                        <a href="">
+                        <form method="POST" action="/deleteImg/{{ $result }}">
+                            @csrf @method('Delete')
                             <x-button class="border-red-600 text-red-600">
-                                <i class="fa-regular fa-download"></i>
+                                <i class="fa-regular fa-trash"></i>
                                 Delete</x-button
                             >
-                        </a>
+                        </form>
                     </div>
                 </div>
 
