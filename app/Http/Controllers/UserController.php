@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\UserImages;
 use App\Models\QrCodes;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
@@ -98,6 +99,7 @@ class UserController extends Controller
         $query = DB::table('userImages')
                         ->where('users_id', '=', $users_id)
                         ->whereNotNull('image_path')
+                        ->whereNull('deleted_at')
                         ->pluck('image_path');
         
         $images = array();
@@ -130,6 +132,19 @@ class UserController extends Controller
         //Might need to change where path is relevant to production
         $filepath = public_path('/images/uploads/' . $file_name);
         return response()->download($filepath);
+    }
+
+    public function destroyImage($file_name){
+        $filepath = public_path('/images/uploads/' . $file_name);
+
+        $image = UserImages::where('image_path', $filepath)->first();
+
+        if($image != null) {
+            $image->delete();
+            return redirect('/gallary')->with('message', 'image deleted successfully');
+        }
+        return redirect('/gallary');
+
     }
 
     public function index(){
