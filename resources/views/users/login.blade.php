@@ -1,5 +1,5 @@
 <x-layout>
-    <x-card class="p-10 max-w-lg mx-auto mt-24">
+    <x-card class="p-10 max-w-lg mx-auto mt-24 mb-52">
         <x-logo></x-logo>
         <header class="text-center">
             <h2 class="text-2xl font-bold uppercase m-0">Login</h2>

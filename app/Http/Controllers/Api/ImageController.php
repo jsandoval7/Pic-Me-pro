@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Models\User;
 use App\Models\UserImages;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
@@ -12,6 +14,7 @@ use Symfony\Component\HttpFoundation\Response;
 class ImageController extends Controller
 {
     //
+
     public function imageStore(Request $request)
     {
         $this->validate($request, [
@@ -41,5 +44,18 @@ class ImageController extends Controller
     
         $jsonData = $response->json();
         return json_encode($jsonData);
+    }
+
+    public function validateUser(Request $request){
+       $user_id = $request->userAccount;
+       if (User::where('id', $user_id)->exists()) {
+        $query = DB::table('users')->where('id', '=', $user_id)->value('name');
+        return response($query, Response::HTTP_OK);
+       }
+       else{
+        $no_result = "no result found";
+        return response($no_result, Response::HTTP_NOT_ACCEPTABLE);
+       }
+
     }
 }
