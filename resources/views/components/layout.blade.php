@@ -17,8 +17,8 @@
         <script src="//unpkg.com/alpinejs" defer></script>
         <title>PicMe | Capstone Project</title>
     </head>
-    <body>
-    <nav class="relative container mx-auto p-6 bg-violet-600 text-white opacity-90 w-auto">
+    <body class="min-h-screen">
+    <nav class="relative mx-auto p-6 bg-violet-600 text-white opacity-90 w-auto">
       <!-- Flex container -->
       <div class="flex items-center justify-between">
         <!-- Logo -->
@@ -108,7 +108,7 @@
         @else
 
     <!-- Footer -->
-    <footer class=" bottom-0 bg-veryDarkBlue">
+    <footer class="sticky top-[100vh] inset-x-0 mx-auto bg-violet-600">
       <!-- Flex Container -->
       <div
         class="container flex flex-col-reverse justify-between px-6 py-10 mx-auto space-y-8 md:flex-row md:space-y-0"

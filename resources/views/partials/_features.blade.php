@@ -2,7 +2,7 @@
 <section id="features">
     <!-- Flex Container -->
     <div
-        class="container flex flex-col px-4 mx-auto mt-10 space-y-12 md:space-y-0 md:flex-row"
+        class="container flex flex-col px-4 mx-auto mt-10 space-y-12 md:space-y-0 md:flex-row mb-10"
     >
         <!-- Whats Different -->
         <div class="flex flex-col space-y-5 md:w-1/2">
