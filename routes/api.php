@@ -29,3 +29,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::post('image',[ImageController::class, 'imageStore']);
 Route::get('text', [ImageController::class, 'thisText']);
+Route::get('validateUser', [ImageController::class, 'validateUser']);

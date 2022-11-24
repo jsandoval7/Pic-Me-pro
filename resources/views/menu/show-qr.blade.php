@@ -1,6 +1,7 @@
 <x-layout>
-    <div class="flex flex-col items-center justify-center text-center">
-        <img class="w-48 mr-6 mb-6" src="{{ asset($qr) }}" alt="" />
-        what is this image here doing
-    </div>
+    <x-card class="p-10 max-w-lg mx-auto mt-24">
+        <div class="flex items-center justify-center">
+            <img class="w-48 mr-6 mb-6" src="{{ asset($qr) }}" alt="" />
+        </div>
+    </x-card>
 </x-layout>
