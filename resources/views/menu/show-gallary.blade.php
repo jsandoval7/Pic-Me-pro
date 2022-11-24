@@ -11,16 +11,16 @@
                             src="{{ asset($result) }}"
                         />
                     </div>
-                    <div class="flex w-full justify-evenly">
+                    <div class="flex w-full flex-wrap justify-evenly">
                         <a href=" /downloadImg/{{ $result }} ">
-                            <x-button class="border-blue-600 text-blue-600">
+                            <x-button class="md:border-blue-600 text-blue-600">
                                 <i class="fa-regular fa-download"></i>
                                 Download</x-button
                             >
                         </a>
                         <form method="POST" action="/deleteImg/{{ $result }}">
                             @csrf @method('Delete')
-                            <x-button class="border-red-600 text-red-600">
+                            <x-button class="md:border-red-600 text-red-600">
                                 <i class="fa-regular fa-trash"></i>
                                 Delete</x-button
                             >
