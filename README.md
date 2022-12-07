@@ -22,8 +22,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/othneildrew/Best-README-Template">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+  <a href="http://146.190.214.33">
   </a>
 
   <h3 align="center">PicMe Read Me</h3>
@@ -63,8 +62,7 @@
 
 ## About The Project
 
-s
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+[![][]](http://146.190.214.33)
 
 PicMe Project was created to provide access to photos real time. This project consists of two main components, one being the standalone app which controls the camara, while this web application allows you to create an account, scan qr code on standalone app, and view images which have been taken from the photobooth application.
 
