@@ -73,7 +73,7 @@ PicMe Project was created to provide access to photos real time. This project co
 ### Built With
 
 -   [![Laravel][laravel.com]][laravel-url]
--   [![Tailwind][tailwindcss.com]][tailwind-url]
+-   [![Tailwind][https://tailwindcss.com]][tailwind-url]
 -   [![Vite][https://vitejs.dev]][vite-url]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -100,17 +100,7 @@ Use this space to show useful examples of how a project can be used. Additional 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- ROADMAP -->
-
-## Roadmap
-
 See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a full list of proposed features (and known issues).
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- LICENSE -->
-
-## License
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -126,8 +116,6 @@ Project Link: [http://146.190.214.33](http://146.190.214.33)
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- ACKNOWLEDGMENTS -->
-
-## Acknowledgments
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
